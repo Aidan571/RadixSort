@@ -43,6 +43,36 @@ public class Radix{
     }
   }
 
+  public static void radixSort(SortableLinkedList data){
+    int a = 1;
+    SortableLinkedList[] buckets = new SortableLinkedList[20];
+    for(int g = 0; g < 20; g++){
+      buckets[g] = new SortableLinkedList();
+    }
+    for(int i = 0; i < a; i++){
+      for(int j = 0; j < data.size(); j++){
+        if(i == 0){
+          if(length(data.get(j)) > a){
+            a = length(data.get(j));
+          }
+        }
+        if(data.get(j) < 0){
+          buckets[10 - nth(data.get(j),i)].add(data.get(j));
+        }
+        else{
+          buckets[nth(data.get(j),i) + 10].add(data.get(j));
+        }
+          }
+        if(data.size() != 0){
+          for(int b = 0; b < data.size();){
+            data.remove(b);
+        }
+      }
+      merge(data,buckets);
+      System.out.println(data);
+    }
+  }
+
   public static void main(String[]args){
     System.out.println(nth(123,1));
     System.out.println(nth(-123,1));
@@ -73,5 +103,14 @@ public class Radix{
     tester.add(20);
     radixSortSimple(tester);
     System.out.println(tester);
+    System.out.println("-----------");
+    SortableLinkedList negative = new SortableLinkedList();
+    negative.add(-1234);
+    negative.add(-456);
+    negative.add(234);
+    negative.add(1);
+    negative.add(-5782327);
+    radixSort(negative);
+    //System.out.println(negative);
   }
 }

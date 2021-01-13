@@ -13,7 +13,7 @@ public class Radix{
     }
   }
 
-  public static void merge(MyLinkedList original, MyLinkedList[]buckets){
+  public static void merge(SortableLinkedList original, SortableLinkedList[]buckets){
     for(int i = 0; i < buckets.length; i++){
       original.extend(buckets[i]);
     }
@@ -30,12 +30,12 @@ public class Radix{
     System.out.println(length(532));
     System.out.println(length(1234));
     System.out.println("-----------");
-    MyLinkedList test = new MyLinkedList();
-    MyLinkedList[] buckets = new MyLinkedList[10];
+    SortableLinkedList test = new SortableLinkedList();
+    SortableLinkedList[] buckets = new SortableLinkedList[10];
     for(int i = 0; i < 10; i++){
-      buckets[i] = new MyLinkedList();
+      buckets[i] = new SortableLinkedList();
       for(int j = 0; j < 5; j++){
-        buckets[i].add("" + j);
+        buckets[i].add(j);
       }
     }
     merge(test, buckets);

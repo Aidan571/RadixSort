@@ -8,6 +8,9 @@ public class Radix{
     if(n == 0){
       return 1;
     }
+    else if(n < 0){
+      return String.valueOf(n).length() - 1;
+    }
     else{
       return (int) (Math.log10(n) + 1);
     }
@@ -85,7 +88,7 @@ public class Radix{
     System.out.println(length(2));
     System.out.println(length(27));
     System.out.println(length(532));
-    System.out.println(length(1234));
+    System.out.println(length(-1234));
     System.out.println("-----------");
     SortableLinkedList test = new SortableLinkedList();
     SortableLinkedList[] buckets = new SortableLinkedList[10];
@@ -108,11 +111,11 @@ public class Radix{
     System.out.println(tester);
     System.out.println("-----------");
     SortableLinkedList negative = new SortableLinkedList();
-    negative.add(-1234);
-    negative.add(-456);
-    negative.add(234);
-    negative.add(1);
-    negative.add(-5782327);
+    negative.add(4528);
+    negative.add(-9458356);
+    negative.add(536754);
+    negative.add(23);
+    negative.add(-503850);
     radixSort(negative);
     System.out.println(negative);
   }
